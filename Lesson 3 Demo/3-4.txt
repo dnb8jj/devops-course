@@ -1,0 +1,61 @@
+Lab 3.4: Configure Email Notification in Jenkins
+
+
+
+This section will guide you to: 
+Configure Gmail in Jenkins
+This lab has 4 subsections:
+      3.4.1   Install “Email Extension plugin” in Jenkins.
+      3.4.2    Configure Gmail in Jenkins.
+      3.4.3   Receive an email when the Build fails.
+      3.4.4   Receive an email when the Build is successful.
+      
+
+Step 3.4.1 : Install “Email Extension plugin” in Jenkins
+Go to Jenkins landing page ➔ Manage Jenkins ➔ Manage plugins ➔ Available
+
+Search for the plugin and install it. Once done, you will be able to see it in the list of installed plugins.
+
+Step 3.4.2 : Configure Gmail in Jenkins
+
+Go to Jenkins landing page ➔ Configure system ➔ Extended E-mail notification
+
+Fill it up as follows:
+SMTP server – ‘smtp gmail.com’
+Username – (Your email id)
+Password – (Your password)
+SMTP port – 465
+Reply To List - (Your email id)
+
+ 
+
+If you realize that you are not receiving emails to your Gmail account, login to your email  account and enable “Allow less secure apps”.
+ 
+Now, set the following:
+Default Subject : $PROJECT_NAME – Build # $BUILD_NUMBER - $BUILD_STATUS!
+Default Content : $PROJECT_NAME – Build # $BUILD_NUMBER - $BUILD_STATUS
+		      Check console output at $BUILD_URL to view the results.
+
+ 
+You can click on “Test Notification” and check if you have received an email or not.
+Then click on “Save”.
+Create a new job named “TestJob”. Then go to “Configure”.
+You need to configure so that when the job build fails, you will receive an email.
+Go to “Add post-build action” ➔ E-mail Notification 
+Fill in your email id in “Recipients”.
+You can put multiple email ids by providing a space between consecutive ones.
+ 
+ 
+
+Click on “Save”.
+
+Step 3.4.3 : Build the project to receive an email
+Make some change to your code so that the Build is not successful.
+Go to Build Now ➔ Check the output in the console, and make sure that your Build has failed 
+Now, go to your email id to make sure that you have received an email stating that the Build has failed.
+Step 3.4.4 : Rectify your mistake, and Build the project to receive an email again
+Go to your project, and rectify your mistake in the code so that the Build is successful.
+Once done, Build it again, and check if you have received an email stating that the Build was successful. 
+
+
+

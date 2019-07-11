@@ -1,0 +1,39 @@
+Lab 3.1: Install and Configure Jenkins
+
+      This section will guide you to: 
+Install and run Jenkins
+      This lab has 4 subsections:
+3.2.1	Add a key to use Debian repository.
+3.2.2	Make changes to /etc/opt/sources.list.
+3.2.3	Update local package index.
+3.2.4	Run Jenkins in browser.
+       
+Go to https://pkg.jenkins.io/debian-stable/ to understand how to install Jenkins on a Ubuntu/Debian machine.
+Step 3.2.1 : To use the Debian repository of Jenkins to automate installation and upgrade, first add the key to your system using the following command:
+ wget -q -O – https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add –
+
+Step 3.2.2 : Then, add the following entry in your /etc/apt/sources.list:
+ sudo vi /etc/apt/sources.list
+      Now add the following command:
+        deb https://pkg.jenkins.io/debian-stable binary/
+      Save and exit using :wq!
+      Step 3.2.3 : Update your local package index.
+       sudo apt-get update
+      Make sure you have jdk installed. If not, install it using the following command:
+      sudo apt-get install openjdk-8-jdk
+      Then install Jenkins.
+      sudo apt-get install jenkins
+      Step 3.2.4 : Once Jenkins is installed, open a browser on your local machine and enter the
+      URL:    x.x.x.x:8080
+      replacing x.x.x.x with the external IP address of your virtual machine.
+      You will need to enter the admin password.
+      To find the password, type the following command:
+      sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+      Use the string of numbers as password. Once you are logged in, you will be redirected to the page below:
+ 
+      Select Install suggested plugins. You will be redirected to the page below:
+ 
+After installing recommended plugins, you can create “First Admin User” or continue as Admin by filling the required details as shown in the screenshot.
+ 
+
+Once that is done, start using Jenkins.
